@@ -4,7 +4,7 @@ import wasm from './build/lmfit.web.wasm.js';
 const workerURL = URL.createObjectURL(new Blob([pako.inflate(atob(worker), { to: 'string' })], { type: 'text/javascript' }));
 const wasmBinary = pako.inflate(Uint8Array.from(atob(wasm), c => c.charCodeAt(0))).buffer;
 export default () => {
-    const worker = new Worker(workerURL);
+    const worker = new Worker(workerURL, {type: 'module'});
     worker.postMessage({ wasmBinary });
     return worker;
 };
