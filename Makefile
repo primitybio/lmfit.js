@@ -20,6 +20,7 @@ EMX_FLAGS += -s NODEJS_CATCH_REJECTION=0
 EMX_FLAGS += --memory-init-file 0
 EMX_FLAGS += -s ASSERTIONS=1
 EMX_FLAGS += --minify 0
+EMX_FLAGS += -s TEXTDECODER=1
 
 
 all: lmfit.js
